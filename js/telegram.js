@@ -35,13 +35,13 @@ function myFunc() {
     divs.forEach(div => {
             const roll = div.querySelector('.cart-item__title').innerHTML;
             const howMuch = div.querySelector('.items__current').innerHTML;
-            res = res + roll +' '+ howMuch +', '
+            res = res + roll +' - '+ howMuch +'шт, '
     });
     const dostavka = document.querySelector('.delivery-cost').innerHTML;
     
     const totalPrice = document.querySelector('.total-price').innerHTML;
     
-    zakzText = (`Ролл: ${res} Доставка: ${dostavka} рублей. Сумма всего заказа: ${totalPrice} рублей`)
+    zakzText = (`Заказ: ${res} Доставка: ${dostavka} рублей. Сумма всего заказа: ${totalPrice} рублей`)
 }
 
 
