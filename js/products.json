@@ -1,58 +1,146 @@
 [
-	{
-	 "id": 1,
-	 "title": "Филадельфия хит ролл",
-	 "itemsInBox": 6,
-	 "weight": 180,
-	 "price": 300,
-	 "imgSrc": "philadelphia.jpg"
-	},
-	{
-	 "id": 2,
-	 "title": "Калифорния темпура",
-	 "itemsInBox": 6,
-	 "weight": 205,
-	 "price": 250,
-	 "imgSrc": "california-tempura.jpg"
-	},
-	{
-	 "id": 3,
-	 "title": "Запеченый ролл «Калифорния»",
-	 "itemsInBox": 6,
-	 "weight": 182,
-	 "price": 230,
-	 "imgSrc": "zapech-california.jpg"
-	},
-	{
-	 "id": 4,
-	 "title": "Филадельфия",
-	 "itemsInBox": 6,
-	 "weight": 230,
-	 "price": 320,
-	 "imgSrc": "philadelphia.jpg"
-	},
-	{
-	 "id": 5,
-	 "title": "Чебурек он такой один",
-	 "itemsInBox": 1,
-	 "weight": 200,
-	 "price": 50,
-	 "imgSrc": "che.jpg"
-	},
-	{
-	 "id": 6,
-	 "title": "Чебурек",
-	 "itemsInBox": 3,
-	 "weight": 100,
-	 "price": 500,
-	 "imgSrc": "che.jpg"
-	},
-	{
-		"id": 7,
-		"title": "Капибара",
-		"itemsInBox": 1,
-		"weight": 200,
-		"price": 993,
-		"imgSrc": "kap.jpg"
-	}
-   ]
+  {
+    "id": 1,
+    "title": "Филадельфия хит ролл",
+    "description": "описание товара  номер раз. описание номер раз. описание номер раз.",
+    "itemsInBox": "6 шт",
+    "weight": 180,
+    "price": 300,
+    "imgSrc": "philadelphia.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Калифорния темпура",
+    "description": "описание товара  номер раз. описание номер раз. описание номер раз.",
+    "itemsInBox": "6 кг",
+    "weight": 205,
+    "price": 250,
+    "imgSrc": "california-tempura.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Запеченый ролл «Калифорния»",
+    "description": "описание товара  номер раз. описание номер раз. описание номер раз.",
+    "itemsInBox": 6,
+    "weight": 182,
+    "price": 230,
+    "imgSrc": "zapech-california.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Филадельфия",
+    "description": "описание товара  номер раз. описание номер раз. описание номер раз.",
+    "itemsInBox": 6,
+    "weight": 230,
+    "price": 320,
+    "imgSrc": "philadelphia.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Филадельфия",
+    "description": "описание товара  номер раз. описание номер раз. описание номер раз.",
+    "itemsInBox": 6,
+    "weight": 230,
+    "price": 320,
+    "imgSrc": "111.jpeg"
+  },
+  {
+    "id": 6,
+    "title": "Чебурек он такой один",
+    "description": "описание товара  номер раз. описание номер раз. описание номер раз.",
+    "itemsInBox": 1,
+    "weight": 200,
+    "price": 50,
+    "imgSrc": "222.jpeg"
+  },
+  {
+    "id": 7,
+    "title": "Чебурек",
+    "description": "описание товара  номер раз. описание номер раз. описание номер раз.",
+    "itemsInBox": 3,
+    "weight": 100,
+    "price": 500,
+    "imgSrc": "333.jpeg"
+  },
+  {
+    "id": 8,
+    "title": "Капибара",
+    "description": "описание товара  номер раз. описание номер раз. описание номер раз.",
+    "itemsInBox": 1,
+    "weight": 200,
+    "price": 993,
+    "imgSrc": "444.jpeg"
+  },
+  {
+    "id": 9,
+    "title": "Филадельфия хит ролл",
+    "description": "описание товара  номер раз. описание номер раз. описание номер раз.",
+    "itemsInBox": "6 шт",
+    "weight": 180,
+    "price": 300,
+    "imgSrc": "philadelphia.jpg"
+  },
+  {
+    "id": 10,
+    "title": "Калифорния темпура",
+    "description": "описание товара  номер раз. описание номер раз. описание номер раз.",
+    "itemsInBox": "6 кг",
+    "weight": 205,
+    "price": 250,
+    "imgSrc": "california-tempura.jpg"
+  },
+  {
+    "id": 11,
+    "title": "Запеченый ролл «Калифорния»",
+    "description": "описание товара  номер раз. описание номер раз. описание номер раз.",
+    "itemsInBox": 6,
+    "weight": 182,
+    "price": 230,
+    "imgSrc": "zapech-california.jpg"
+  },
+  {
+    "id": 12,
+    "title": "Филадельфия",
+    "description": "описание товара  номер раз. описание номер раз. описание номер раз.",
+    "itemsInBox": 6,
+    "weight": 230,
+    "price": 320,
+    "imgSrc": "philadelphia.jpg"
+  },
+  {
+    "id": 13,
+    "title": "Филадельфия",
+    "description": "описание товара  номер раз. описание номер раз. описание номер раз.",
+    "itemsInBox": 6,
+    "weight": 230,
+    "price": 320,
+    "imgSrc": "111.jpeg"
+  },
+  {
+    "id": 14,
+    "title": "Чебурек он такой один",
+    "description": "описание товара  номер раз. описание номер раз. описание номер раз.",
+    "itemsInBox": 1,
+    "weight": 200,
+    "price": 50,
+    "imgSrc": "222.jpeg"
+  },
+  {
+    "id": 15,
+    "title": "Чебурек",
+    "description": "описание товара  номер раз. описание номер раз. описание номер раз.",
+    "itemsInBox": 3,
+    "weight": 100,
+    "price": 500,
+    "imgSrc": "333.jpeg"
+  },
+  {
+    "id": 16,
+    "title": "Капибара",
+    "description": "описание товара  номер раз. описание номер раз. описание номер раз.",
+    "itemsInBox": 1,
+    "weight": 200,
+    "price": 993,
+    "imgSrc": "444.jpeg"
+  }
+]

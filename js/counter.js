@@ -1,3 +1,5 @@
+import { calcCartPriceAndDelivery } from "./calcCartPrice.js";
+
 // Добавляем прослушку на всем окне
 window.addEventListener('click', function (event) {
 
@@ -44,3 +46,9 @@ window.addEventListener('click', function (event) {
 		calcCartPriceAndDelivery();
 	}
 });
+
+
+document.querySelector('#popup').addEventListener('click', () => {
+	document.querySelector('#popup').classList.toggle('none');
+	document.querySelector('#cart').classList.toggle('none');
+})

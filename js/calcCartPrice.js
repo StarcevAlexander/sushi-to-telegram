@@ -1,4 +1,55 @@
-function calcCartPriceAndDelivery() {
+export let promoSum = 0
+export let promoObject
+let promos
+
+const promoBtn = document.querySelector('#promo-btn')
+const promoForm = document.querySelector('#promo-form')
+
+
+getPromocode()
+
+async function getPromocode() {
+	// Получаем данные из promo-code.json
+	const response = await fetch('./js/promo-code.json');
+	// Парсим данные из JSON формата в JS
+	promos = await response.json();
+	// Запускаем ф-ю рендера (отображения промов)
+}
+
+
+promoBtn.addEventListener('click', () => {
+	if (promoBtn.innerHTML === '+промокод') {
+		promoBtn.innerHTML = '-промокод'
+		promoForm.classList.toggle('none')
+		calcCartPriceAndDelivery()
+	}
+	else if (promoBtn.innerHTML === '-промокод') {
+		promoBtn.innerHTML = '+промокод'
+		promoForm.classList.toggle('none')
+		calcCartPriceAndDelivery()
+	}
+})
+
+promoForm.addEventListener('change', () => {
+	const promoValue = promoForm.value;
+	findPromo(promoValue);
+});
+
+let findPromo = (promo) => {
+	promoObject = promos.find(obj => obj.promo === promo);
+	if (promoObject) {
+		promoSum = promoObject.rubles;
+		promoForm.style.border = '2px solid green';
+		calcCartPriceAndDelivery()
+	} else {
+		promoSum = 0
+		promoForm.style.border = '2px solid red';
+		calcCartPriceAndDelivery()
+	}
+}
+
+
+export function calcCartPriceAndDelivery() {
 	const cartWrapper = document.querySelector('.cart-wrapper');
 	const priceElements = cartWrapper.querySelectorAll('.price__currency');
 	const totalPriceEl = document.querySelector('.total-price');
@@ -18,7 +69,7 @@ function calcCartPriceAndDelivery() {
 
 	// Отображаем цену на странице
 
-	totalPriceEl.innerText = priceTotal + 250
+	totalPriceEl.innerText = priceTotal + 250 + promoSum
 
 	// Скрываем / Показываем блок со стоимостью доставки
 	if (priceTotal > 0) {
@@ -31,11 +82,11 @@ function calcCartPriceAndDelivery() {
 	if (priceTotal >= 1000) {
 		deliveryCost.classList.add('free');
 		deliveryCost.innerText = 'бесплатно';
-		totalPriceEl.innerText = priceTotal
+		totalPriceEl.innerText = priceTotal + promoSum
 	} else {
 		deliveryCost.classList.remove('free');
 		deliveryCost.innerText = '250';
-	totalPriceEl.innerText = priceTotal + 250
+		totalPriceEl.innerText = priceTotal + 250 + promoSum
 
 	}
 }

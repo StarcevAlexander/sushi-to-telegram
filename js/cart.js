@@ -1,3 +1,5 @@
+import { calcCartPriceAndDelivery } from "./calcCartPrice.js";
+
 // Div внутри корзины, в который мы добавляем товары
 const cartWrapper =  document.querySelector('.cart-wrapper');
 
@@ -38,7 +40,8 @@ window.addEventListener('click', function (event) {
 									</div>
 									<div class="cart-item__desc">
 										<div class="cart-item__title" '>${productInfo.title}</div>
-										<div class="cart-item__weight">${productInfo.itemsInBox} / ${productInfo.weight}</div>
+
+										</div>
 
 										<!-- cart-item__details -->
 										<div class="cart-item__details">

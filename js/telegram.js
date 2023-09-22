@@ -1,12 +1,15 @@
+import {promoSum} from './calcCartPrice.js'
+import {promoObject} from './calcCartPrice.js'
 //данные моего телеграм бота
 
-const TOKEN = "6273687344:AAEQLqI3VI87fxNeHrgcALkeq0ekQ-jB6ps"
-const CHAT_ID = "-1001711407669"
+const TOKEN = "5843110084:AAGr3oTwabU0mtLeZLw4BteR5M6Sm437488"
+const CHAT_ID = "-4080191516"
 const url_api = `https://api.telegram.org/bot${TOKEN}/sendMessage`
 
 
 // обозначил инпут
-const input = document.querySelector('input');
+const input = document.querySelector('#inputPhone');
+const input2 = document.querySelector('#inputAdress');
 
 // разрешил вводить только цифры, не больше 11
 input.addEventListener('input', () => {
@@ -17,10 +20,20 @@ input.addEventListener('input', () => {
 
 //импут окрашивается красным без введёных данных
 input.addEventListener('blur', () => {
-    if (input.value.trim() === '') {
+    if (input.value === '') {
         input.style.border = '2px solid red';
-    } else {
+    }
+    if (input.value !== '') {
         input.style.border = '2px solid green';
+    }
+});
+
+input2.addEventListener('blur', () => {
+    if (input2.value === '') {
+        input2.style.border = '2px solid red';
+    }
+    if (input2.value !== '') {
+        input2.style.border = '2px solid green';
     }
 });
 
@@ -29,40 +42,71 @@ let zakzText
 
 
 function myFunc() {
-    const cards = document.querySelector('.cart-wrapper');
     const divs = document.querySelectorAll('.cart-item');
     let res = ""
     divs.forEach(div => {
-            const roll = div.querySelector('.cart-item__title').innerHTML;
-            const howMuch = div.querySelector('.items__current').innerHTML;
-            res = res + roll +' - '+ howMuch +'шт, '
+        const roll = div.querySelector('.cart-item__title').innerHTML;
+        const howMuch = div.querySelector('.items__current').innerHTML;
+        res = res + roll + ' - ' + howMuch + 'шт, ' + '\n'
     });
     const dostavka = document.querySelector('.delivery-cost').innerHTML;
-    
+
     const totalPrice = document.querySelector('.total-price').innerHTML;
-    
-    zakzText = (`Заказ: ${res} Доставка: ${dostavka} рублей. Сумма всего заказа: ${totalPrice} рублей`)
+
+    zakzText = (`Состав:\n${res}\nДоставка: ${dostavka} рублей.\nИспользован промо-код на сумму: ${-promoSum} рублей\nпо поводу:\n${promoObject.description}\n\nСумма всего заказа: ${totalPrice} рублей`)
 }
 
+let howMuchClick = 0
 
 document.getElementById('tg').addEventListener('submit', function (e) {
+    //соберём дату заказа
+    let currentDate = new Date();
+    let day = currentDate.getDate();
+    let month = currentDate.getMonth() + 1; // Месяцы в JavaScript нумеруются с 0, поэтому добавляем 1
+    let year = currentDate.getFullYear();
+    let hours = currentDate.getHours();
+    let minutes = currentDate.getMinutes();
+    if (day < 10) {
+        day = '0' + day;
+    }
+    if (month < 10) {
+        month = '0' + month;
+    }
+    if (hours < 10) {
+        hours = '0' + hours;
+    }
+    if (minutes < 10) {
+        minutes = '0' + minutes;
+    }
+    let formattedDate = day + '.' + month + '.' + year + ' в ' + hours + ':' + minutes;
+
     //если инпут не пустой
-    if (input.value.trim() !== '') {
-        
+    if (input.value !== '' && input2.value !== '') {
+        howMuchClick++
+        if (howMuchClick === 4) {
+            location.reload()
+           
+        }
         e.preventDefault();
         myFunc()
-        let message = `<b>Сообщение с сайта: </b> \n Номер клиента: ${this.text.value}  \n ${zakzText}` 
+        let message = `${formattedDate}\nпоступил заказ:\n\n${zakzText}\n\nНомер клиента: ${this.text.value}\nАдрес клиента: ${this.adress.value}`
         axios.post(url_api, {
-          chat_id: CHAT_ID,
-          parse_mode: 'html',
-          text: message 
+            chat_id: CHAT_ID,
+            parse_mode: 'html',
+            text: message
         })
-        document.getElementById('inputPhone').value = ''
-        e.target.reset()
+
+        document.querySelector('#popup').classList.remove('none');
+        document.querySelector('#cart').classList.add('none');
+
+        document.querySelector('#close').addEventListener('click', () => {
+            cart.classList.add('none');
+        })
+
+        //перегрузка страницы в случае нажатия больше 3 раз
+
     }
-    //иначе инпут красится в красный, отправка прерывается, без перезагрузки страницы
     else {
-        input.style.border = '5px solid red';
         e.preventDefault();
     }
 })
