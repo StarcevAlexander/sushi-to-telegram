@@ -53,7 +53,7 @@ function myFunc() {
 
     const totalPrice = document.querySelector('.total-price').innerHTML;
 
-    zakzText = (`Состав:\n${res}\nДоставка: ${dostavka} рублей.\nИспользован промо-код на сумму: ${-promoSum} рублей\nпо поводу:\n${promoObject.description}\n\nСумма всего заказа: ${totalPrice} рублей`)
+    zakzText = (`Состав:\n${res}\nДоставка: ${dostavka} рублей.\nИспользован промо-код на сумму:\n ${-promoSum} рублей\nпо поводу:\n${promoObject?.description || '—'}\n\nСумма всего заказа: ${totalPrice} рублей`)
 }
 
 let howMuchClick = 0
