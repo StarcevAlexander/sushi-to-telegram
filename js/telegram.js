@@ -2,8 +2,8 @@ import {promoSum} from './calcCartPrice.js'
 import {promoObject} from './calcCartPrice.js'
 //данные моего телеграм бота
 
-const TOKEN = "5843110084:AAGr3oTwabU0mtLeZLw4BteR5M6Sm437488"
-const CHAT_ID = "-4080191516"
+const TOKEN = "6601477232:AAG41Ryo8ZQ2osPMtqzJsXlFov1Kpmb4okI"
+const CHAT_ID = "-4580689545"
 const url_api = `https://api.telegram.org/bot${TOKEN}/sendMessage`
 
 
